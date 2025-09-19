@@ -1,0 +1,2 @@
+# Allows RSpec to track state between runs
+/.rspec-persistence
