@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# Exit if a non-conditional command exits with a non-zero status
+set -e
+
+RUBY_VERSION=$(cat .ruby-version)
+
+check_command() {
+  command=$1
+  dependency=$2
+
+  if ! type "$command"; then
+    echo "==> Please install $dependency and re-run this script" >&2
+    exit 1
+  fi
+}
+
+check_command ruby "Ruby $RUBY_VERSION (https://www.ruby-lang.org/en/)"
+check_command bundle "Bundler (https://bundler.io/)"
+
+echo "==> Installing dependencies"
+
+bundle install
+
+echo "==> Running specs"
+
+bundle exec rspec
+
+cat << INSTRUCTIONS
+==> You're good to go!
+
+Search for names:
+
+    bin/clients search 'will' < JSON
+
+Display duplicates:
+
+    bin/clients duplicates < JSON
+
+Run tests:
+
+    bin/rspec
+INSTRUCTIONS
