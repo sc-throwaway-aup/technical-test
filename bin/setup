@@ -24,7 +24,7 @@ bundle install
 
 echo "==> Running specs"
 
-bundle exec rspec
+bin/rspec
 
 cat << INSTRUCTIONS
 ==> You're good to go!
@@ -36,4 +36,8 @@ Search for names:
 Display duplicates
 
     bin/clients duplicates < PATH_TO_JSON
+
+Run tests:
+
+    bin/rspec
 INSTRUCTIONS
