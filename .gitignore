@@ -1,2 +1,5 @@
 # Allows RSpec to track state between runs
 /.rspec-persistence
+
+# Code coverage results
+/coverage/
