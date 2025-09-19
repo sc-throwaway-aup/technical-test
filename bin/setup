@@ -24,7 +24,7 @@ bundle install
 
 echo "==> Running specs"
 
-bundle exec rspec
+bin/rspec
 
 cat << INSTRUCTIONS
 ==> You're good to go!

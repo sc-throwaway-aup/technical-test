@@ -2,11 +2,15 @@
 
 ## Set-up
 
-Run:
+To set up your environment, run:
 
     bin/setup
 
 This script assumes you have Bash, and walks you through any missing part of your development set-up.
+
+To run tests:
+
+    bin/rspec
 
 ## Usage
 
