@@ -30,6 +30,16 @@ helpers = Module.new do
     $stderr = original_stderr
   end
 
+  # Turns hash-like data into a STDIN-like JSON string.
+  def stdin_as_json_from(data)
+    double(STDIN, read: JSON.generate(data), ready?: true)
+  end
+
+  # Parses the output of the CLI as JSON
+  def parsed_json_cli_output
+    JSON.parse(cli_output, symbolize_names: true)
+  end
+
   def cli_output
     @stdout&.string.strip
   end
