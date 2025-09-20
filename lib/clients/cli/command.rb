@@ -62,5 +62,14 @@ module Clients
     def subcommand_names
       subcommands.map(&:command_name)
     end
+
+    def print_as_json(data)
+      puts JSON.pretty_generate(data)
+    end
+
+    def client_list
+      fail InvalidCommand, "JSON missing" if stdin.nil? || !stdin.ready?
+      List.from_io(stdin)
+    end
   end
 end

@@ -7,3 +7,4 @@ $LOAD_PATH.unshift(Pathname(__dir__).join("lib"))
 Clients = Module.new
 
 require_relative 'clients/cli'
+require_relative 'clients/list'
