@@ -4,6 +4,7 @@
 set -e
 
 RUBY_VERSION=$(cat .ruby-version)
+DEFAULT_JSON_PATH="./spec/fixtures/clients.json"
 
 check_command() {
   command=$1
@@ -31,11 +32,11 @@ cat << INSTRUCTIONS
 
 Search for names:
 
-    bin/clients search 'will' < JSON
+    bin/clients search 'will' < $DEFAULT_JSON_PATH
 
 Display duplicates:
 
-    bin/clients duplicates < JSON
+    bin/clients duplicates < $DEFAULT_JSON_PATH
 
 Run tests:
 

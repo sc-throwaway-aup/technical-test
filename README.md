@@ -16,11 +16,15 @@ To run tests:
 
 Search for names:
 
-    bin/clients named 'will' < PATH_TO_JSON
+    bin/clients search 'will' < PATH_TO_JSON
 
 Display duplicates:
 
     bin/clients duplicates < PATH_TO_JSON
+
+For `PATH_TO_JSON`, you can use the sample included in this repository:
+
+    bin/clients search 'will' < ./spec/fixtures/clients.json
 
 JSON is read from STDIN, so you can pipe it from another command:
 
