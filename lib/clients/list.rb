@@ -16,6 +16,15 @@ class Clients::List < SimpleDelegator
     filter { |record| search_compare(record[field.to_sym], term) }
   end
 
+  # Returns duplicates by a given field, grouped by field.
+  #
+  # @example
+  #   collection.duplicates(:email) # => { "dupe@example.com" => [..., ...] }
+  def duplicates_by(field)
+    group_by { |record| record[field.to_sym] }
+      .filter { |grouping, records| records.size > 1 }
+  end
+
   # Returns a collection from any IO-compliant object.
   #
   # @example

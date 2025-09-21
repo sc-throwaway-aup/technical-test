@@ -30,5 +30,17 @@ module Clients
       expect(list.search(:full_name, "r")).to match_array([helly, mark])
       expect(list.search(:email, "lumon")).to match_array([helly, mark, dylan])
     end
+
+    it "can find #duplicates" do
+      helly = List::Record.new(full_name: "Helly R", email: "helly@lumon.inc", id: 1)
+      mark_a = List::Record.new(full_name: "Mark S", email: "mark@lumon.inc", id: 2)
+      mark_b = List::Record.new(full_name: "Mark Scout", email: "mark@lumon.inc", id: 3)
+
+      list = described_class.new([helly, mark_a, mark_b])
+
+      expect(list.duplicates_by(:email))
+        .to eq("mark@lumon.inc" => [mark_a, mark_b])
+    end
+
   end
 end

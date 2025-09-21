@@ -48,3 +48,12 @@ On a more complex CLI project I might:
 - Add linting, SCI, and SAST scanning
 - Package the binary in a gem
 - Consider streaming the JSON if memory usage becomes a problem
+- Consider supporting multiple outputs (e.g. more human readable UI)
+- Consider a CLI framework or library
+
+The next best feature I would priortise would be passing command-line arguments such as:
+
+    bin/clients search lumon --field email --fuzzy
+    bin/clients duplicates --field name
+
+This is just a matter of passing the keyword arguments for what is already implemented in `Client::List`.

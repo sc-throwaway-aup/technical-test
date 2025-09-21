@@ -6,7 +6,11 @@ module Clients::CLI
 
     def search_term
       term = argv.first
-      fail(InvalidCommand, "Please specify a search term") if term.empty?
+
+      if term.nil? || term.empty?
+        fail(InvalidCommand, "Please specify a search term")
+      end
+
       term
     end
   end
